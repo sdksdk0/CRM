@@ -8,9 +8,11 @@
     <!-- struts标签模板 -->
     <constant name="struts.ui.theme" value="simple"></constant>
 
-    <package name="default" namespace="/" extends="struts-default">
-			
-			
-			
+    <package name="default" namespace="/" extends="struts-default">		
     </package>
+    
+    <!-- 导入其他模块 -->
+    <include file="struts/struts-staff.xml" ></include>
+    
+    
 </struts>

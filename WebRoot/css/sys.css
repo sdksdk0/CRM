@@ -1,0 +1,124 @@
+body{
+	PADDING-RIGHT:0px;
+	padding-left:0px;
+	padding_bottom:0px;
+	font-size:12px;
+	margin:0px;
+	background-color:#ffffff;
+	SCROLLBAR-FACE-COLOR: #A3DAFF;
+	SCROLLBAR-HIGHLIGHT-COLOR: #D2EDFF;
+	SCROLLBAR-SHADOW-COLOR: #4b9da7; 
+	SCROLLBAR-ARROW-COLOR: #035c80; 
+	SCROLLBAR-BASE-COLOR: #4b9da7; 
+	scrollbar-3d-light-color: #4B9DA7;
+	scrollbar-dark-shadow-color: #4B9DA7
+}
+table{
+	border-collapse:collapse;	
+	width:100%;
+}
+/*.input,.textarea{
+	font-size:12px;
+	color: #000000;
+	text-decoration: none;
+	border: 1px solid #ffffff;
+	
+	width: 90%;
+}*/
+td,th{
+	font-size:12px;
+	border-color: #5AC9FE;
+	height:18px;
+}
+.title {
+	background-color: #B8DCED;
+}
+.tabtd1 {  
+  line-height: 20px; 
+  font-family: "宋体"; 
+  font-size: 12px; 
+}
+.tabtd2 {
+  line-height: 20px; 
+  font-family: "宋体"; 
+  font-size: 12px; 
+  background-color: #E8F7FF
+}
+.bgtable {
+	background-color: #FFFFFF;
+	border: 1px solid #5AC9FE;
+}
+img {
+	border: none;
+}
+.inputt {
+	BACKGROUND-COLOR: transparent;
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid #000000;
+	
+	border-left: none;
+}
+.wukuang {
+	border: 0px none;
+	background-image: url(../images/tbg.gif);
+}
+.henglan {
+	background-color: #A6E0FF;
+}
+.topg {
+	height: 5px;
+}
+.topd {
+	height: 0px;
+}
+.imgd {
+	vertical-align: bottom;
+	border: 0px none;
+}
+
+/*潜在学生*/
+.emp_body{
+
+	background:#E8F7FF;
+}
+.emp_table{
+   border-collapse:collapse;
+   width:88%;
+   margin-top:15px; margin-left:115px;
+}
+.emp_table td{
+   height:25px;
+}
+.wukuang a {
+	margin-left:8px;
+}
+.emp_info input{
+  margin-top:10px;
+  width:90px;
+  margin-left:10px;
+}
+.emp_table table tr td{
+  border:1px solid #ccc;
+}
+.emp_table2{
+   border-collapse:collapse;
+   width:88%;
+   margin-top:5px; margin-left:55px;
+   
+}
+.emp_table2 tr td{
+	
+	height:25px;
+}
+.emp_table2 tr td input{
+  margin-left:20px;
+}
+.emp_save{
+  padding-left:100px;
+}
+.emp_save input{
+   width:90px;
+}
+	
+	

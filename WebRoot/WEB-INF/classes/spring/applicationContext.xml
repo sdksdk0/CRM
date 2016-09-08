@@ -12,9 +12,58 @@
        					   http://www.springframework.org/schema/aop/spring-aop.xsd
        					   http://www.springframework.org/schema/tx 
        					   http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+
+	<!-- 配置公共信息 -->
+	
+	<!-- 1 加载properties -->
+	<context:property-placeholder location="classpath:jdbcInfo.properties"/>
+	<!-- 2 配置数据源 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+	<!-- 3 SessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 3.1 数据源 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 3.2 hibernate配置信息 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="javax.persistence.validation.mode">none</prop>
+			</props>
+		</property>
+		<!-- 3.3 加载映射文件 -->
+		<property name="mappingLocations" value="classpath:cn/tf/*/domain/*.hbm.xml"></property>
+	</bean>
+	<!-- 4 事务管理 -->
+	<!-- 4.1 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 4.2 配置通知，描述事务详情 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*"/>
+			<tx:method name="update*"/>
+			<tx:method name="delete*"/>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="*" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- 4.3 将通知（详情），应用目标类方法（切入点） -->
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.tf.*.service..*.*(..))"/>
+	</aop:config>
+
 
 
 	<!-- 到入其他模块的配置文件 -->
-	
+	<import resource="classpath:spring/applicationContext-staff.xml" />
 
 </beans>
