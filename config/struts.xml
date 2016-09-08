@@ -8,7 +8,29 @@
     <!-- struts标签模板 -->
     <constant name="struts.ui.theme" value="simple"></constant>
 
-    <package name="default" namespace="/" extends="struts-default">		
+    <package name="common" namespace="/" extends="struts-default">		
+    		<!-- 拦截器配置 -->
+    		<interceptors>
+    			<interceptor name="LoginInterceptor"  class="cn.tf.Filter.LoginInterceptor"></interceptor>
+    			<!-- 自定义拦截器 -->
+    			<interceptor-stack name="LoginStack">
+    				<interceptor-ref name="defaultStack"></interceptor-ref>
+    				<interceptor-ref name="LoginInterceptor">
+    					<param name="excludeMethods">loginUI,login</param>
+    				</interceptor-ref>
+    			</interceptor-stack>
+    		</interceptors>
+    		
+    		<!-- 默认拦截器栈的引用 -->
+    		<default-interceptor-ref name="LoginStack"></default-interceptor-ref>
+    		
+    		
+    		<!-- 登录拦截器 -->
+    		<global-results>
+    				<result name="login">/WEB-INF/pages/login.jsp</result>
+    		</global-results>
+    		
+    		
     		<!-- 工具类，用于统一显示jsp页面 -->
     		<action name="uiAction_*_*">
     			<result>/WEB-INF/pages/{1}/{2}.jsp</result>
