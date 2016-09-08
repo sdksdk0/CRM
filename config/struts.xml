@@ -9,6 +9,10 @@
     <constant name="struts.ui.theme" value="simple"></constant>
 
     <package name="default" namespace="/" extends="struts-default">		
+    		<!-- 工具类，用于统一显示jsp页面 -->
+    		<action name="uiAction_*_*">
+    			<result>/WEB-INF/pages/{1}/{2}.jsp</result>
+    		</action>
     </package>
     
     <!-- 导入其他模块 -->

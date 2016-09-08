@@ -27,8 +27,8 @@ function Node(id, pid, name, url, title, target, icon, iconOpen, open) {
 	this._p;
 };
 
-// Tree object
-function dTree(objName) {
+// Tree object/**  * 参数1：objName * 参数2：basePath，获得发布的项目名称 */
+function dTree(objName,basePath) {	if(typeof(basePath) == "undefined"){		basePath = "../../";	//默认的写法	}	
 	this.config = {
 		target					: null,
 		folderLinks			: true,
@@ -39,22 +39,21 @@ function dTree(objName) {
 		useStatusText		: false,
 		closeSameLevel	: false,
 		inOrder					: false
-	}
-	this.icon = {
-		root				: '../../images/base.gif',
-		folder			: '../../images/folder.gif',
-		folderOpen	: '../../images/folderopen.gif',
-		node				: '../../images/page.gif',
-		empty				: '../../images/empty.gif',
-		line				: '../../images/line.gif',
-		join				: '../../images/join.gif',
-		joinBottom	: '../../images/joinbottom.gif',
-		plus				: '../../images/plus.gif',
-		plusBottom	: '../../images/plusbottom.gif',
-		minus				: '../../images/minus.gif',
-		minusBottom	: '../../images/minusbottom.gif',
-		nlPlus			: '../../images/nolines_plus.gif',
-		nlMinus			: '../../images/nolines_minus.gif'
+	}	this.icon = {
+		root				: basePath + '/images/base.gif',
+		folder			: basePath + '/images/folder.gif',
+		folderOpen	: basePath + '/images/folderopen.gif',
+		node				: basePath + '/images/page.gif',
+		empty				: basePath + '/images/empty.gif',
+		line				: basePath + '/images/line.gif',
+		join				: basePath + '/images/join.gif',
+		joinBottom	: basePath + '/images/joinbottom.gif',
+		plus				: basePath + '/images/plus.gif',
+		plusBottom	: basePath + '/images/plusbottom.gif',
+		minus				: basePath + '/images/minus.gif',
+		minusBottom	: basePath + '/images/minusbottom.gif',
+		nlPlus			: basePath + '/images/nolines_plus.gif',
+		nlMinus			: basePath + '/images/nolines_minus.gif'
 	};
 	this.obj = objName;
 	this.aNodes = [];
