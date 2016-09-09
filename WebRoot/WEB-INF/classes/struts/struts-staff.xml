@@ -18,6 +18,12 @@
 				</result>
 				
 				<result name="home">/WEB-INF/pages/frame.jsp</result>
+				<result name="addUI">/WEB-INF/pages/staff/addStaff.jsp</result>
+				<result name="add"  type="redirectAction">
+						<param name="namespace">/</param>
+						<param name="actionName">staffAction_findAll</param>
+				</result>
+				<result name="findAll">/WEB-INF/pages/staff/listStaff.jsp</result>
 			</action> 
 			
     </package>

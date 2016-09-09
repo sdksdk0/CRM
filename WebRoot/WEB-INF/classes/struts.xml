@@ -8,7 +8,7 @@
     <!-- struts标签模板 -->
     <constant name="struts.ui.theme" value="simple"></constant>
 
-    <package name="common" namespace="/" extends="struts-default">		
+    <package name="common" namespace="/" extends="json-default">		
     		<!-- 拦截器配置 -->
     		<interceptors>
     			<interceptor name="LoginInterceptor"  class="cn.tf.Filter.LoginInterceptor"></interceptor>
@@ -22,8 +22,8 @@
     		</interceptors>
     		
     		<!-- 默认拦截器栈的引用 -->
-    		<default-interceptor-ref name="LoginStack"></default-interceptor-ref>
-    		
+    		<!-- <default-interceptor-ref name="LoginStack"></default-interceptor-ref>
+    		 -->
     		
     		<!-- 登录拦截器 -->
     		<global-results>
@@ -39,6 +39,7 @@
     
     <!-- 导入其他模块 -->
     <include file="struts/struts-staff.xml" ></include>
+    <include file="struts/struts-post.xml" ></include>
     
     
 </struts>

@@ -14,11 +14,11 @@
        					   http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-	<bean id="departmentService"  class="cn.tf.department.service.impl.DepartmentServiceImpl">
-		<property name="departmentDao" ref="departDao"></property>
+	<bean id="staffService"  class="cn.tf.staff.service.impl.StaffServiceImpl">
+		<property name="staffDao" ref="staffDao"></property>
 	</bean>
 	
-	<bean id="departDao"  class="cn.tf.department.dao.impl.DepartmentDaoImpl">
+	<bean id="staffDao"  class="cn.tf.staff.dao.impl.StaffDaoImpl">
 		<property name="sessionFactory"  ref="sessionFactory"></property>
 	</bean>
 	

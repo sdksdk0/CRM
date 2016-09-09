@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 开发模式 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- struts标签模板 -->
+    <constant name="struts.ui.theme" value="simple"></constant>
+
+    <package name="post" namespace="/" extends="common">
+			<!-- 员工 -->
+			<action name="postAction_*"  class="cn.tf.post.action.PostAction"  method="{1}" >
+			<result name="ajaxGetAllPost" type="json">
+    			<!-- 设置值栈名称，让struts获得数据 -->
+    			<param name="root">allPost</param>
+    			<!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义 -->
+    			<param name="includeProperties">
+    				\[\d\]\.postId,
+    				\[\d\]\.name
+    			</param>
+    		</result>
+			</action> 
+			
+    </package>
+</struts>

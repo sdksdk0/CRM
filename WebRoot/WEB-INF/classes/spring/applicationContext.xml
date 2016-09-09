@@ -65,5 +65,7 @@
 
 	<!-- 到入其他模块的配置文件 -->
 	<import resource="classpath:spring/applicationContext-staff.xml" />
+	<import resource="classpath:spring/applicationContext-deparment.xml" />
+	<import resource="classpath:spring/applicationContext-post.xml" />
 
 </beans>
