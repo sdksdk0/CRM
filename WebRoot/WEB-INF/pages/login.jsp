@@ -19,7 +19,16 @@ FONT-SIZE: 12px; COLOR: #4b4b4b; LINE-HEIGHT: 18px; TEXT-DECORATION: none
 	font-size: 18px;
 	font-family: 微软雅黑;
 }
+
 </STYLE>
+
+	<script type="text/javascript">
+			if(top!=self){
+				top.location = self.location;
+			}
+	
+	</script>
+	
 
 <TITLE></TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
@@ -60,5 +69,8 @@ FONT-SIZE: 12px; COLOR: #4b4b4b; LINE-HEIGHT: 18px; TEXT-DECORATION: none
 			</td>
 		</tr>
 	</table>
+	
+
+	
 </div>
 </BODY></HTML>

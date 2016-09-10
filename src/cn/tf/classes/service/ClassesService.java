@@ -14,4 +14,8 @@ public interface  ClassesService {
 	//通过id查询
 	public CrmClass findById(String classId);
 
+	//上传课表
+	public void addUploadFile(String classId, String filePath,
+			String scheduleFileName);
+
 }

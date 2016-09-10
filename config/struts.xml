@@ -22,8 +22,8 @@
     		</interceptors>
     		
     		<!-- 默认拦截器栈的引用 -->
-    		<!-- <default-interceptor-ref name="LoginStack"></default-interceptor-ref>
-    		 -->
+    		<default-interceptor-ref name="LoginStack"></default-interceptor-ref>
+    		 
     		
     		<!-- 登录拦截器 -->
     		<global-results>

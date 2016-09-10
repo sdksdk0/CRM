@@ -85,7 +85,7 @@
 		<td align="center">
 	    	<a href="${pageContext.request.contextPath}/pages/classesm/showClass.jsp"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img"/></a>
 		</td>
-		<td align="center" title="上次上传时间：2015-04-02">
+		<td align="center" >
 			<%--上传 --%>
 			<s:a namespace="/" action="classesAction_uploadUI">
 				<s:param name="classId" value="classId"></s:param>
@@ -93,14 +93,13 @@
 			</s:a>
 			
 			<s:if test="uploadFileName != null">
-			
 				<s:a namespace="/" action="classesAction_download">
 					<s:param name="classId" value="classId"></s:param>
 					下载
 				</s:a>
 			</s:if>
 			<s:else>
-				暂无
+				
 			</s:else>
 		</td>
 	  </tr>

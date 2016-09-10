@@ -26,5 +26,13 @@ public class ClassesServiceImpl implements ClassesService{
 	public CrmClass findById(String classId) {
 		return classesDao.findById(classId);
 	}
+	@Override
+	public void addUploadFile(String classId, String filePath,
+			String scheduleFileName) {
+		//一级缓存的内容，当修改一级缓存的内容时，当commit的时候，通过快照比较，直接更新
+		CrmClass  findClass=this.classesDao.findById(classId);  
+		findClass.setUploadPath(filePath);
+		findClass.setUploadFileName(scheduleFileName);
+	}
 	
 }

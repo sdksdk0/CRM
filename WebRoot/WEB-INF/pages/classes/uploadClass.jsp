@@ -47,13 +47,6 @@
 	    <td><s:property value="name" /> </td>
 	    <td>&nbsp;</td>
 	  </tr>
-	  <%-- 
-	  <tr>
-	    <td>上次上传时间：</td>
-	    <td>2015-04-02 </td>
-	    <td>&nbsp;</td>
-	  </tr>
-	  --%>
 	  <tr>
 	    <td>选择课表：</td>
 	    <td>&nbsp;</td>

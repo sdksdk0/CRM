@@ -12,10 +12,21 @@
 		<action name="classesAction_*"  class="cn.tf.classes.action.ClassesAction"  method="{1}">
 				<result  name="findAll">/WEB-INF/pages/classes/listClass.jsp</result>
 				<result name="addOrEditUI">/WEB-INF/pages/classes/addOrEditClass.jsp</result>
-				<result name="addOrEdit"  type="redirectAction">
-					classesAction_findAll
+				<result name="addOrEdit"  type="redirectAction">classesAction_findAll</result>
+				<result name="uploadUI">/WEB-INF/pages/classes/uploadClass.jsp</result>
+				<result name="upload"  type="redirectAction">classesAction_findAll</result>
+				<result  name="uploadError">/WEB-INF/pages/error.jsp</result>
+				
+				<result name="download"  type="stream">
+					<param name="contentDisposition">attachment;filename=${downloadFileName}</param>
+					<param name="inputName">target</param>
 				</result>
+				
+				<!-- 文件上传拦截器 -->
+				<interceptor-ref name="LoginStack">
+					<param name="fileUpload.allowedExtensions">.xls,.xlsx</param>	
+				</interceptor-ref>
+				
 		</action>
-			
     </package>
 </struts>
