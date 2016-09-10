@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 开发模式 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- struts标签模板 -->
+    <constant name="struts.ui.theme" value="simple"></constant>
+
+    <package name="class" namespace="/" extends="common">
+		<action name="classesAction_*"  class="cn.tf.classes.action.ClassesAction"  method="{1}">
+				<result  name="findAll">/WEB-INF/pages/classes/listClass.jsp</result>
+				<result name="addOrEditUI">/WEB-INF/pages/classes/addOrEditClass.jsp</result>
+				<result name="addOrEdit"  type="redirectAction">
+					classesAction_findAll
+				</result>
+		</action>
+			
+    </package>
+</struts>

@@ -68,7 +68,9 @@
 	<import resource="classpath:spring/applicationContext-deparment.xml" />
 	<import resource="classpath:spring/applicationContext-post.xml" />
 	<import resource="classpath:spring/applicationContext-lessontype.xml" />
+	<import resource="classpath:spring/applicationContext-class.xml" />
 
+	
 
 
 </beans>

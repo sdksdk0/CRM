@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/crm/!svn/ver/19/trunk/crm/WebRoot/WEB-INF/pages/classes
+END
+addOrEditClass.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/crm/!svn/ver/20/trunk/crm/WebRoot/WEB-INF/pages/classes/addOrEditClass.jsp
+END
+uploadClass.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/crm/!svn/ver/21/trunk/crm/WebRoot/WEB-INF/pages/classes/uploadClass.jsp
+END
+listClass.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/crm/!svn/ver/22/trunk/crm/WebRoot/WEB-INF/pages/classes/listClass.jsp
+END

@@ -25,7 +25,7 @@
 		
 		
 		d.add('0103','01','教学部');
-		d.add('010301','0103','班级管理','../classesm/listClass.html','','right');
+		d.add('010301','0103','班级管理','${pageContext.request.contextPath}/classesAction_findAll','','right');
 		d.add('010302','0103','课程类别管理','${pageContext.request.contextPath}/lessontypeAction_findAll','','right');
 		
 		/*

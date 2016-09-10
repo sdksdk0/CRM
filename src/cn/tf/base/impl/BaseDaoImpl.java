@@ -1,5 +1,6 @@
-package cn.tf.base;
+package cn.tf.base.impl;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.sql.SQLException;
 import java.util.List;
@@ -10,6 +11,8 @@ import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import cn.tf.base.BaseDao;
 
 public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 
@@ -71,6 +74,14 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 		return list.get(0).intValue();
 	}
 
+	@Override
+	public T findById(Serializable oid) {
+		List<T>  allT=this.getHibernateTemplate().find(" from "+daoImplClass.getName()+" where  id=? ",oid);
+		if(allT !=null && allT.size()==1){
+			return allT.get(0);
+		}
+		return null;
+	}
 
 	/**
 	 * 通过编写回调实现分页，此实现类为固定内容
@@ -121,5 +132,8 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 		}
 		
 	}
+
+
+
 	
 }

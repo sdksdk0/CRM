@@ -16,10 +16,10 @@
         <property name="name" type="java.lang.String">
             <column name="name" length="50" />
         </property>
-        <property name="beginTime" type="java.sql.Timestamp">
+        <property name="beginTime" type="date">
             <column name="beginTime" length="19" />
         </property>
-        <property name="endTime" type="java.sql.Timestamp">
+        <property name="endTime" type="date">
             <column name="endTime" length="19" />
         </property>
         <property name="state" type="java.lang.String">

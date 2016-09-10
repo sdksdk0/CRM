@@ -1,6 +1,7 @@
 package cn.tf.classes.domain;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import cn.tf.lessontype.domain.CrmLessontype;
 
@@ -15,8 +16,8 @@ public class CrmClass implements java.io.Serializable {
 	private String classId;
 	private CrmLessontype crmLessontype;
 	private String name;
-	private Timestamp beginTime;
-	private Timestamp endTime;
+	private Date beginTime;
+	private Date endTime;
 	private String state;
 	private Integer totalCount;
 	private Integer goCount;
@@ -31,28 +32,8 @@ public class CrmClass implements java.io.Serializable {
 	public CrmClass() {
 	}
 
-	/** full constructor */
-	public CrmClass(CrmLessontype crmLessontype, String name,
-			Timestamp beginTime, Timestamp endTime, String state,
-			Integer totalCount, Integer goCount, Integer leaveCount,
-			String remark, String uploadFileName, String uploadPath) {
-		this.crmLessontype = crmLessontype;
-		this.name = name;
-		this.beginTime = beginTime;
-		this.endTime = endTime;
-		this.state = state;
-		this.totalCount = totalCount;
-		this.goCount = goCount;
-		this.leaveCount = leaveCount;
-		this.remark = remark;
-		this.uploadFileName = uploadFileName;
-		this.uploadPath = uploadPath;
-	}
-
-	// Property accessors
-
 	public String getClassId() {
-		return this.classId;
+		return classId;
 	}
 
 	public void setClassId(String classId) {
@@ -60,7 +41,7 @@ public class CrmClass implements java.io.Serializable {
 	}
 
 	public CrmLessontype getCrmLessontype() {
-		return this.crmLessontype;
+		return crmLessontype;
 	}
 
 	public void setCrmLessontype(CrmLessontype crmLessontype) {
@@ -68,31 +49,31 @@ public class CrmClass implements java.io.Serializable {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public Timestamp getBeginTime() {
-		return this.beginTime;
+	public Date getBeginTime() {
+		return beginTime;
 	}
 
-	public void setBeginTime(Timestamp beginTime) {
+	public void setBeginTime(Date beginTime) {
 		this.beginTime = beginTime;
 	}
 
-	public Timestamp getEndTime() {
-		return this.endTime;
+	public Date getEndTime() {
+		return endTime;
 	}
 
-	public void setEndTime(Timestamp endTime) {
+	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
 
 	public String getState() {
-		return this.state;
+		return state;
 	}
 
 	public void setState(String state) {
@@ -100,7 +81,7 @@ public class CrmClass implements java.io.Serializable {
 	}
 
 	public Integer getTotalCount() {
-		return this.totalCount;
+		return totalCount;
 	}
 
 	public void setTotalCount(Integer totalCount) {
@@ -108,7 +89,7 @@ public class CrmClass implements java.io.Serializable {
 	}
 
 	public Integer getGoCount() {
-		return this.goCount;
+		return goCount;
 	}
 
 	public void setGoCount(Integer goCount) {
@@ -116,7 +97,7 @@ public class CrmClass implements java.io.Serializable {
 	}
 
 	public Integer getLeaveCount() {
-		return this.leaveCount;
+		return leaveCount;
 	}
 
 	public void setLeaveCount(Integer leaveCount) {
@@ -124,7 +105,7 @@ public class CrmClass implements java.io.Serializable {
 	}
 
 	public String getRemark() {
-		return this.remark;
+		return remark;
 	}
 
 	public void setRemark(String remark) {
@@ -132,7 +113,7 @@ public class CrmClass implements java.io.Serializable {
 	}
 
 	public String getUploadFileName() {
-		return this.uploadFileName;
+		return uploadFileName;
 	}
 
 	public void setUploadFileName(String uploadFileName) {
@@ -140,11 +121,32 @@ public class CrmClass implements java.io.Serializable {
 	}
 
 	public String getUploadPath() {
-		return this.uploadPath;
+		return uploadPath;
 	}
 
 	public void setUploadPath(String uploadPath) {
 		this.uploadPath = uploadPath;
 	}
+
+	public CrmClass(String classId, CrmLessontype crmLessontype, String name,
+			Date beginTime, Date endTime, String state, Integer totalCount,
+			Integer goCount, Integer leaveCount, String remark,
+			String uploadFileName, String uploadPath) {
+		super();
+		this.classId = classId;
+		this.crmLessontype = crmLessontype;
+		this.name = name;
+		this.beginTime = beginTime;
+		this.endTime = endTime;
+		this.state = state;
+		this.totalCount = totalCount;
+		this.goCount = goCount;
+		this.leaveCount = leaveCount;
+		this.remark = remark;
+		this.uploadFileName = uploadFileName;
+		this.uploadPath = uploadPath;
+	}
+
+	
 
 }

@@ -1,5 +1,6 @@
 package cn.tf.base;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
@@ -32,4 +33,9 @@ public interface BaseDao<T> {
 	
 	//分页的总记录数
 	public int getTotalRecode();
+	
+	//查找
+	T findById(Serializable  serializable);
+	
+	
 }

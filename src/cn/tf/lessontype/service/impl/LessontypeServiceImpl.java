@@ -1,6 +1,8 @@
 package cn.tf.lessontype.service.impl;
 
 
+import java.util.List;
+
 import cn.tf.lessontype.dao.LessontypeDao;
 import cn.tf.lessontype.domain.CrmLessontype;
 import cn.tf.lessontype.service.LessontypeService;
@@ -26,6 +28,11 @@ public class LessontypeServiceImpl implements LessontypeService {
 		pageBean.setData(lessontypeDao.findAllByPage(pageBean.getStartIndex(), pageSize));
 		
 		return pageBean;
+	}
+
+	@Override
+	public List<CrmLessontype> findAll() {
+		return lessontypeDao.findAll();
 	}
 
 }

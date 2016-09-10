@@ -40,6 +40,7 @@
     <!-- 导入其他模块 -->
     <include file="struts/struts-staff.xml" ></include>
     <include file="struts/struts-post.xml" ></include>
-     <include file="struts/struts-lessontype.xml" ></include>
+    <include file="struts/struts-lessontype.xml" ></include>
+    <include file="struts/struts-class.xml" ></include>
     
 </struts>
