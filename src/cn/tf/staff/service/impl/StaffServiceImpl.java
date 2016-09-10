@@ -1,7 +1,11 @@
 package cn.tf.staff.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
+import cn.tf.department.domain.CrmDepartment;
 import cn.tf.staff.dao.StaffDao;
 import cn.tf.staff.domain.CrmStaff;
 import cn.tf.staff.service.StaffService;
@@ -35,8 +39,33 @@ public class StaffServiceImpl implements StaffService{
 	//根据条件查询所有
 	@Override
 	public List<CrmStaff> findAllStaff(CrmStaff crmStaff) {
-		String condition="";
-		Object[] params={};
+		
+		StringBuilder builder = new StringBuilder();
+		List<Object> paramsList = new ArrayList<Object>();
+		
+		// 1.1 职务或部门
+		if(crmStaff.getCrmPost() != null){
+			// 选中职务
+			if(StringUtils.isNotBlank(crmStaff.getCrmPost().getPostId())){
+				builder.append(" and crmPost = ?");
+				paramsList.add(crmStaff.getCrmPost());
+			} else {
+				//有可能选中部门
+				CrmDepartment crmDepartment = crmStaff.getCrmPost().getCrmDepartment();
+				if(crmDepartment != null && StringUtils.isNotBlank(crmDepartment.getDepId())){
+					builder.append(" and crmPost.crmDepartment = ?");
+					paramsList.add(crmDepartment);
+				}
+			}
+		}
+		// 1.2 姓名
+		if(StringUtils.isNotBlank(crmStaff.getStaffName() )){
+			builder.append(" and staffName like ?");
+			paramsList.add("%" + crmStaff.getStaffName() + "%");
+		}
+		
+		String condition = builder.toString();
+		Object[] params = paramsList.toArray();
 
 		return staffDao.findAllStaff(condition,params);
 	}

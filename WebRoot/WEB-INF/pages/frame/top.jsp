@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags"  prefix="s" %>    
 <HTML><HEAD>
 <meta http-equiv="Content-Language" content="zh-cn">
 <TITLE></TITLE>
@@ -29,7 +30,7 @@
 						<td width="150" height="24"></td>
 					</tr>
 					<tr>
-						<td width="150" height="35"><p align="right"><font color="#FFFFFF">欢迎您：<b></b></font></td>
+						<td width="150" height="35"><p align="right"><font color="#FFFFFF">欢迎您：<b><s:property  value="#session.loginStaff.staffName"/></b></font></td>
 					</tr>
 				</table>
 				</div>
@@ -51,7 +52,7 @@
 													tmpDate = new Date();
 													date = tmpDate.getDate();
 													month = tmpDate.getMonth() + 1;
-													year = tmpDate.getYear();
+													year = tmpDate.getFullYear();
 													//document.write(1900 + year);
 													document.write(year);
 													document.write("年");

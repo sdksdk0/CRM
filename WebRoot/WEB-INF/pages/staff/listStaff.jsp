@@ -8,6 +8,11 @@
 <title>无标题文档</title>
 
 <link href="${pageContext.request.contextPath}/css/sys.css" type="text/css" rel="stylesheet" />
+	<!-- 引入自定义 js 类库 -->
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/myQuery.js"></script>
+	<!-- 编写js工具类 -->
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
+	
 </head>
 
 <body >
@@ -24,13 +29,8 @@
    
     <td width="57%"align="right">
     	<%--高级查询 --%>
-		<a href="javascript:void(0)" onclick="condition()"><img src="${pageContext.request.contextPath}/images/button/gaojichaxun.gif" /></a>
-    	<%--员工注入 
-    		* /pages/staff/addStaff.jsp
-	  	<a href="${pageContext.request.contextPath}/uiAction_staff_addStaff">
-	  		<img src="${pageContext.request.contextPath}/images/button/tianjia.gif" />
-	  	</a>
-    	--%>
+		<a href="javascript:void(0)" onclick="document.forms[0].submit()" ><img src="${pageContext.request.contextPath}/images/button/gaojichaxun.gif" /></a>
+
 	  	<s:a namespace="/" action="staffAction_addUI">
 	  		<img src="${pageContext.request.contextPath}/images/button/tianjia.gif" />
 	  	</s:a>
@@ -41,36 +41,36 @@
 </table>
 
 <!-- 查询条件：马上查询 -->
-<form id="conditionFormId" action="${pageContext.request.contextPath}/staff/staffAction_findAll" method="post">
+<s:form namespace="/" action="staffAction_findAll">
+
 	<table width="88%" border="0" style="margin: 20px;" >
 	  <tr>
 	    <td width="80px">部门：</td>
 	    <td width="200px">
-	    	
-	    	<select name="crmPost.crmDepartment.depId" onchange="changePost(this)">
-			    <option value="">--请选择部门--</option>
-			    <option value="2c9091c14c78e58b014c78e67de10001">java学院</option>
-			    <option value="2c9091c14c78e58b014c78e68ded0002">咨询部</option>
-			</select>
+			<s:select list="#allDepartment" name="crmPost.crmDepartment.depId"
+				listKey="depId" listValue="depName"
+				headerKey="" headerValue="--请选择部门--"
+				onchange="changePost(this,'postSelectId');"
+			>
+			
+			</s:select>
 
 	    </td>
 	    <td width="80px" >职务：</td>
 	    <td width="200px" >
 	    	
-	    	<select name="crmPost.postId" id="postSelectId">
-			    <option value="">--请选择职务--</option>
-			    <option value="2c9091c14c78e58b014c78e6b34a0003">总监</option>
-			    <option value="2c9091c14c78e58b014c78e6d4510004">讲师</option>
-			    <option value="2c9091c14c78e58b014c78e6f2340005">主管</option>
-			</select>
+			<s:select list="#allPost != null ? #allPost : {} " name="crmPost.postId" id="postSelectId"
+				listKey="postId" listValue="name"
+				headerKey="" headerValue="----请选择职务----"
+			></s:select>
 
 	    </td>
 	    <td width="80px">姓名：</td>
-	    <td width="200px" ><input type="text" name="staffName" size="12" /></td>
+	    <td width="200px" ><s:textfield name="staffName" size="12"></s:textfield></td>
 	    <td ></td>
 	  </tr>
 	</table>
-</form>
+</s:form>
 
 
 <table border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
@@ -88,7 +88,7 @@
     <td width="10%" align="center">职务</td>
     <td width="10%" align="center">编辑</td>
   </tr>
-  	
+  	<%-- 单行样式：tabtd1； 双行演样式：tabtd2 --%>
     <s:iterator value="#allStaff" status="vs">
 	  <tr class="<s:property value="#vs.odd ? 'tabtd1' : 'tabtd2'" />"> 
 	    <td align="center"><s:property value="staffName"/> </td>
