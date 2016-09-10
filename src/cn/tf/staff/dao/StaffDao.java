@@ -13,4 +13,8 @@ public interface StaffDao {
 
 	List<CrmStaff> findAllStaff(String condition, Object[] params);
 
+	CrmStaff findById(String staffId);
+
+	void update(CrmStaff crmStaff);
+
 }

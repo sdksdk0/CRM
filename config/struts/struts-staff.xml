@@ -24,6 +24,11 @@
 						<param name="actionName">staffAction_findAll</param>
 				</result>
 				<result name="findAll">/WEB-INF/pages/staff/listStaff.jsp</result>
+				<result name="EditUI">/WEB-INF/pages/staff/editStaff.jsp</result>
+				<result name="edit" type="redirectAction">
+						<param name="namespace">/</param>
+						<param name="actionName">staffAction_findAll</param>
+				</result>
 			</action> 
 			
     </package>

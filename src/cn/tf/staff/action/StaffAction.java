@@ -2,6 +2,7 @@ package cn.tf.staff.action;
 
 import java.util.List;
 
+import cn.tf.classes.domain.CrmClass;
 import cn.tf.department.domain.CrmDepartment;
 import cn.tf.department.service.DepartmentService;
 import cn.tf.post.domain.CrmPost;
@@ -37,6 +38,38 @@ public class StaffAction  extends ActionSupport implements ModelDriven<CrmStaff>
 		return "home";
 	}
 	
+	//进入编辑页面
+	public String EditUI(){
+		CrmStaff  findStaff=this.staffService.findById(this.getModel().getStaffId());
+		ActionContext.getContext().getValueStack().push(findStaff);
+		
+		//查询所有职务
+		List<CrmPost>  allPost=postService.findAllPost();
+		ActionContext.getContext().put("allPost", allPost);
+		//查询所有部门
+		List<CrmDepartment>  allDepartment=departmentService.findAllDepartment();
+		ActionContext.getContext().getValueStack().set("allDepartment", allDepartment);
+		
+		return "EditUI";
+	}
+	
+	
+	//保存编辑的结果
+	public 	String edit(){
+		
+		if(crmStaff.getCrmPost().getName()=="--请选择--"){
+			return ERROR;
+		}
+		
+		this.staffService.updateStaff(crmStaff);
+		
+		
+		
+		return "edit";
+	}
+	
+	
+	
 	
 	public String login(){
 		CrmStaff loginStaff=this.staffService.login(crmStaff);
@@ -66,7 +99,7 @@ public class StaffAction  extends ActionSupport implements ModelDriven<CrmStaff>
 	
 	
 	//添加员工
-	public String add(){
+	public String addOrEdit(){
 		
 		this.staffService.addStaff(crmStaff);
 		

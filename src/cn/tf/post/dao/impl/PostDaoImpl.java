@@ -15,4 +15,9 @@ public class PostDaoImpl extends  HibernateDaoSupport implements PostDao{
 		return this.getHibernateTemplate().find("from CrmPost c  where  c.crmDepartment.depId=? ",departmentId);
 	}
 
+	@Override
+	public List<CrmPost> findAll() {
+		return this.getHibernateTemplate().find("from CrmPost ");
+	}
+
 }

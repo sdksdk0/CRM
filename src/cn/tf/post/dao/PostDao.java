@@ -8,4 +8,6 @@ public interface PostDao {
 
 	public List<CrmPost> findAll(String departmentId);
 
+	public List<CrmPost> findAll();
+
 }

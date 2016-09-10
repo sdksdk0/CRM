@@ -20,4 +20,11 @@ public class PostServiceImpl implements PostService{
 		return postDao.findAll(departmentId);
 	}
 
+
+	@Override
+	public List<CrmPost> findAllPost() {
+		
+		return postDao.findAll();
+	}
+
 }

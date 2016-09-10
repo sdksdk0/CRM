@@ -97,8 +97,11 @@
 	    <td align="center"><s:property value="crmPost.crmDepartment.depName"/> </td>
 	    <td align="center"><s:property value="crmPost.name"/> </td>
 	  	<td width="7%" align="center">
+	  		<s:a namespace="/" action="staffAction_EditUI">
+	    		<s:param name="staffId" value="staffId"></s:param>
+	    		<img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img"/>
+	    	</s:a>
 	  		
-	  		<a href="${pageContext.request.contextPath}/pages/staff/editStaff.jsp"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>	
 	  	</td>
 	  </tr>
     </s:iterator>

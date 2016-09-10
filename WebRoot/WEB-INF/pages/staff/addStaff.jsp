@@ -37,7 +37,9 @@
 
 <%-- 重定向查询所有 /pages/staff/listStaff.jsp --%>
 <s:form namespace="/" action="staffAction_add">
+
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
+
 	 <tr>
 	    <td>登录名：</td>
 	    <td><s:textfield name="loginName"></s:textfield></td>
@@ -64,14 +66,14 @@
 	    <td width="8%">职务：</td>
 	    <td width="62%">
 	    	<select id="postSelectId" name="crmPost.postId">
-	    		<option>----请--选--择----</option>
+	    		<option>--请选择--</option>
 	    	</select>
 	    </td>
 	  </tr>
 	   <tr>
 	    <td width="10%">入职时间：</td>
 	    <td width="20%">
-	    	<s:textfield name="onDutyDate" readonly="true" onfocus="c.showMoreDay=true;c.show(this)"></s:textfield>
+	    	<s:textfield name="onDutyDate" readonly="true" onfocus="c.showMoreDay=true;c.show(this)" ></s:textfield>
 	    </td>
 	    <td width="8%"></td>
 	    <td width="62%"></td>

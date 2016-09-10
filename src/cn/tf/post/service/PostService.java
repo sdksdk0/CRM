@@ -8,4 +8,6 @@ public interface PostService {
 
 	List<CrmPost> findAllPost(String departmentId);
 
+	List<CrmPost> findAllPost();
+
 }

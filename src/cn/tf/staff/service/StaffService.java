@@ -12,4 +12,9 @@ public interface StaffService {
 
 	public List<CrmStaff> findAllStaff(CrmStaff crmStaff);
 
+	public CrmStaff findById(String staffId);
+
+	//更新
+	public void updateStaff(CrmStaff crmStaff);
+
 }
