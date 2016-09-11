@@ -1,80 +1,82 @@
+#drop database ssh_crm;
 create database ssh_crm;
 use ssh_crm;
-#¿Î³ÌÀàĞÍ±í
+#è¯¾ç¨‹ç±»å‹è¡¨
 create table crm_lessonType(
-  lessonTypeID varchar(50) not null primary key,  #Ö÷¼üID
-  lessonCost double null , #¿Î³Ì·ÑÓÃ
-  total int null, #×Ü¿ÎÊ±
-  lessonName varchar(500) ,#¿Î³ÌÃû³Æ
-  remark varchar(5000) null # ¿Î³Ì½éÉÜ
+  lessonTypeID varchar(50) not null primary key,  #ä¸»é”®ID
+  lessonCost double null , #è¯¾ç¨‹è´¹ç”¨
+  total int null, #æ€»è¯¾æ—¶
+  lessonName varchar(500) ,#è¯¾ç¨‹åç§°
+  remark varchar(5000) null # è¯¾ç¨‹ä»‹ç»
 );
 
-#°à¼¶±í
+#ç­çº§è¡¨
 create table crm_class(
-  classID varchar(50) not null primary key , #Ö÷¼üID
-  name varchar(50)  ,#°à¼¶Ãû³Æ
-  beginTime datetime  , #¿ª°àÊ±¼ä
-  endTime datetime  ,#±ÏÒµÊ±¼ä
-  state varchar(20) ,#×´Ì¬(Î´¿ª¿Î¡¢ÒÑ¿ª¿Î¡¢ÒÑ½áÊø)
-  totalCount int, #Ñ§Éú×ÜÊı
-  goCount int , #ÉıÑ§Êı
-  leaveCount int, #Áô°àÊı
-  remark varchar(500),  # ±¸×¢
-  lessonTypeID varchar(50), #ËùÊô¿Î³ÌID (¿Î³ÌµÄÍâ¼ü),
-  uploadFileName varchar(100),	#ÉÏ´«¿Î±íÃû³Æ
-  uploadPath varchar(200)	#ÉÏ´«¿Î±íÎ»ÖÃ
+  classID varchar(50) not null primary key , #ä¸»é”®ID
+  name varchar(50)  ,#ç­çº§åç§°
+  beginTime datetime  , #å¼€ç­æ—¶é—´
+  endTime datetime  ,#æ¯•ä¸šæ—¶é—´
+  state varchar(20) ,#çŠ¶æ€(æœªå¼€è¯¾ã€å·²å¼€è¯¾ã€å·²ç»“æŸ)
+  totalCount int, #å­¦ç”Ÿæ€»æ•°
+  goCount int , #å‡å­¦æ•°
+  leaveCount int, #ç•™ç­æ•°
+  remark varchar(500),  # å¤‡æ³¨
+  lessonTypeID varchar(50), #æ‰€å±è¯¾ç¨‹ID (è¯¾ç¨‹çš„å¤–é”®),
+  uploadFileName varchar(100),	#ä¸Šä¼ è¯¾è¡¨åç§°
+  uploadPath varchar(200)	#ä¸Šä¼ è¯¾è¡¨ä½ç½®
 );
 
-### °à¼¶±íÓë¿Î³ÌÀàĞÍ±í(¶à¶ÔÒ») Ö÷Íâ¼üÔ¼Êø 
+### ç­çº§è¡¨ä¸è¯¾ç¨‹ç±»å‹è¡¨(å¤šå¯¹ä¸€) ä¸»å¤–é”®çº¦æŸ 
 alter table crm_class add constraint foreign key(lessonTypeID) references crm_lessonType(lessonTypeID);
 
 
-#²¿ÃÅ±í
+#éƒ¨é—¨è¡¨
 create table crm_department(
- depID varchar(50) not null primary key, #Ö÷¼ü
- depName varchar(50) # ²¿ÃÅÃû³Æ
+ depID varchar(50) not null primary key, #ä¸»é”®
+ depName varchar(50) # éƒ¨é—¨åç§°
 );
 
-#Ö°Îñ±í
+#èŒåŠ¡è¡¨
 create table crm_post(
-  postID varchar(50) not null primary key , # Ö÷¼üid
-  name varchar(100) , # Ö°ÎñÃû³Æ
-  depID varchar(50) #²¿ÃÅid
+  postID varchar(50) not null primary key , # ä¸»é”®id
+  name varchar(100) , # èŒåŠ¡åç§°
+  depID varchar(50) #éƒ¨é—¨id
 );
 
-### Ö°Îñ±íÓë²¿ÃÅ±í (¶à¶ÔÒ») Ö÷Íâ¼üÔ¼Êø
+### èŒåŠ¡è¡¨ä¸éƒ¨é—¨è¡¨ (å¤šå¯¹ä¸€) ä¸»å¤–é”®çº¦æŸ
 alter table crm_post add constraint foreign key (depID) references crm_department(depID);
 
-#Ô±¹¤±í
+#å‘˜å·¥è¡¨
 create table crm_staff(
   staffID varchar(50) not null primary key,
-  staffCode varchar(50) , #Ô±¹¤±àºÅ
-  loginName varchar(100) , #µÇÂ¼Ãû
-  loginPwd varchar(100),  #ÃÜÂë
-  staffName varchar(100) , #Ô±¹¤Ãû³Æ
-  gender varchar(20) , # ĞÔ±ğ
-  birthday datetime ,#³öÉúÈÕÆÚ
-  onDutyDate datetime , #ÈëÖ°Ê±¼ä
-  postID varchar(50) #Ö°ÎñID £¬Íâ¼ü
+  staffCode varchar(50) , #å‘˜å·¥ç¼–å·
+  loginName varchar(100) , #ç™»å½•å
+  loginPwd varchar(100),  #å¯†ç 
+  staffName varchar(100) , #å‘˜å·¥åç§°
+  gender varchar(20) , # æ€§åˆ«
+  birthday datetime ,#å‡ºç”Ÿæ—¥æœŸ
+  onDutyDate datetime , #å…¥èŒæ—¶é—´
+  postID varchar(50) #èŒåŠ¡ID ï¼Œå¤–é”®
 );
 
-### Ô±¹¤±í Óë Ö°Îñ±í (¶à¶ÔÒ») Ö÷Íâ¼ü¹ØÏµ
+### å‘˜å·¥è¡¨ ä¸ èŒåŠ¡è¡¨ (å¤šå¯¹ä¸€) ä¸»å¤–é”®å…³ç³»
 alter table crm_staff add constraint foreign key(postID) references crm_post(postID);
 
 
-insert into crm_department(depID,depName) values('1','Java½ÌÑĞ²¿');
-insert into crm_department(depID,depName) values('2','PHP½ÌÑĞ²¿');
-insert into crm_department(depID,depName) values('3','²ÆÎñ²¿');
-insert into crm_department(depID,depName) values('4','Ñ§¹¤²¿');
-insert into crm_department(depID,depName) values('5','×ÉÑ¯²¿');
+insert into crm_department(depID,depName) values('1','Javaæ•™ç ”éƒ¨');
+insert into crm_department(depID,depName) values('2','PHPæ•™ç ”éƒ¨');
+insert into crm_department(depID,depName) values('3','è´¢åŠ¡éƒ¨');
+insert into crm_department(depID,depName) values('4','å­¦å·¥éƒ¨');
+insert into crm_department(depID,depName) values('5','å’¨è¯¢éƒ¨');
 
 
-insert into crm_post(postID,name,depID) values('1','½ÌÑ§×Ü¼à','1');
-insert into crm_post(postID,name,depID) values('2','½²Ê¦','1');
+insert into crm_post(postID,name,depID) values('1','æ•™å­¦æ€»ç›‘','1');
+insert into crm_post(postID,name,depID) values('2','è®²å¸ˆ','1');
 
 
 
 insert into crm_staff(staffID,loginName,loginPwd) values('1','jack',md5('1234'));
+## 81dc9bdb52d04dc20036dbd8313ed055
 
  
 

@@ -10,7 +10,7 @@
 
     <package name="post" namespace="/" extends="common">
 			<!-- 员工 -->
-			<action name="postAction_*"  class="cn.tf.post.action.PostAction"  method="{1}" >
+		<action name="postAction_*"  class="cn.tf.post.action.PostAction"  method="{1}" >
 			<result name="ajaxGetAllPost" type="json">
     			<!-- 设置值栈名称，让struts获得数据 -->
     			<param name="root">allPost</param>
@@ -20,7 +20,10 @@
     				\[\d\]\.name
     			</param>
     		</result>
-			</action> 
+    		<result name="findAll">/WEB-INF/pages/post/listPost.jsp</result>
+    		<result name="addOrEditUI">/WEB-INF/pages/post/addOrEditPost.jsp</result>
+    		<result name="addOrEdit"   type="redirectAction">postAction_findAll</result>
+		</action> 
 			
     </package>
 </struts>

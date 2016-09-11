@@ -66,8 +66,6 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao{
 			Date onDutyDate=crmStaff.getOnDutyDate();
 			String staffId=crmStaff.getStaffId();
 			
-			
-			
 			String hql="update CrmStaff c  set c.loginName=? ,c.staffName=?,c.gender=?,c.crmPost.postId=?, c.onDutyDate=?   where c.staffId=?   ";
 			this.getHibernateTemplate().bulkUpdate(hql, loginName,staffName,gender,postId,onDutyDate,staffId);
 			
