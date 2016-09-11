@@ -29,6 +29,9 @@
 						<param name="namespace">/</param>
 						<param name="actionName">staffAction_findAll</param>
 				</result>
+				<result name="updatePwdUI">/WEB-INF/pages/staff/updPwd.jsp</result>
+				<result name="updatePwd">/WEB-INF/pages/staff/success.html</result>
+				<result name="logout">/WEB-INF/pages/login.jsp</result>
 			</action> 
 			
     </package>

@@ -80,8 +80,8 @@ public class StaffServiceImpl implements StaffService{
 
 	@Override
 	public void updateStaff(CrmStaff crmStaff) {
+		crmStaff.setLoginPwd(MD5Util.getMD5Value(crmStaff.getLoginPwd()));
 		 staffDao.update(crmStaff);
-		
 	}
 
 }

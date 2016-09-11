@@ -9,7 +9,7 @@
 <base target="_self">
 <script>
 	function modifypsw(){
-   		var dw=window.showModalDialog('${pageContext.request.contextPath}/html/staff/updPwd.jsp','', 'dialogHeight:180px; dialogWidth:260px; dialogLeft:500px; dialogTop:220px;edge:sunken;center:yes;location:no;help:no;resizable:no;status:no;scroll:no');
+   		var dw=window.showModalDialog('${pageContext.request.contextPath}/staffAction_updatePwdUI','', 'dialogHeight:180px; dialogWidth:260px; dialogLeft:500px; dialogTop:220px;edge:sunken;center:yes;location:no;help:no;resizable:no;status:no;scroll:no');
 	} 
 </script>
 
@@ -91,7 +91,7 @@
 									<td width="26"><img border="0" src="${pageContext.request.contextPath}/images/pwd.gif"></td>
 									<td width="51" valign="middle"><font color="#FFFFFF"><a href="javascript:modifypsw();" ><font color="ffffff">更改口令</font></a></td>
 									<td width="31"><p align="center"><img border="0" src="${pageContext.request.contextPath}/images/login.gif"></td>
-									<td width="55" valign="middle"><a href="${pageContext.request.contextPath}/html/login.jsp" target="_top"><font color="ffffff">重新登录</font></a></td>
+									<td width="55" valign="middle"><a href="${pageContext.request.contextPath}/staffAction_logout" target="_top"><font color="ffffff">重新登录</font></a></td>
 								</tr>
 							</table>
 						</div>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="/struts-tags"  prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -33,7 +35,8 @@
 </head>
 
 <body class="updpwd">
-	<form action="/crm2/staff/staffAction_editPassword.action" method="post">
+	
+	<s:form   namespace="/"  action="staffAction_updatePwd">
 		<table style="width: 200px">
 			<tr>
 				<td colspan="2">
@@ -41,26 +44,30 @@
 				</td>
 			</tr>
 			<tr>
-				<td>原始密码：</td>
-				<td><input type="password" name="oldPassword" value="" /></td>
+				<td>用户编号：</td>
+				<td>
+				<s:textfield   name="#session.loginStaff.staffId"  readonly="true"/>
+				<s:hidden value="%{#session.loginStaff.staffId}"  name="staffId"></s:hidden>
+				</td>
 			</tr>
 			<tr>
 				<td>新&nbsp;密&nbsp;码：</td>
-				<td><input type="password" name="newPassword" value="" /></td>
+				<td><s:password  name="loginPwd"></s:password></td>
 			</tr>
 			<tr>
 				<td>确认密码：</td>
-				<td><input type="password" name="reNewPassword" value="" /></td>
+				<td><s:password  name="reNewPassword"></s:password></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit"  value="修改" class="login_btn"/>
+					
+					<input type="submit"  value="修改" class="login_btn"   />
 
-					<button type="reset" value="关闭" class="login_btn">关闭</button>
-
+					<button type="reset" value="重置" class="login_btn">重置</button>
 				</td>
 			</tr>
 		</table>
-	</form>
+	</s:form>
+
 </body>
 </html>

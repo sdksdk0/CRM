@@ -2,6 +2,11 @@ package cn.tf.staff.action;
 
 import java.util.List;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
+import org.hibernate.Session;
+import org.springframework.beans.BeanUtils;
+
 import cn.tf.classes.domain.CrmClass;
 import cn.tf.department.domain.CrmDepartment;
 import cn.tf.department.service.DepartmentService;
@@ -38,6 +43,25 @@ public class StaffAction  extends ActionSupport implements ModelDriven<CrmStaff>
 		return "home";
 	}
 	
+	
+	//打开修改密码的页面
+	public String updatePwdUI(){
+		return "updatePwdUI";
+	}
+	//修改密码
+	public String  updatePwd(){
+		crmStaff.setStaffCode("1");
+		this.staffService.updateStaff(crmStaff);
+		return "updatePwd";
+	}
+	
+	//推出登录
+	public String logout(){
+		ActionContext.getContext().getSession().remove("loginStaff");
+		return "logout";
+	}
+	
+	
 	//进入编辑页面
 	public String EditUI(){
 		CrmStaff  findStaff=this.staffService.findById(this.getModel().getStaffId());
@@ -62,9 +86,6 @@ public class StaffAction  extends ActionSupport implements ModelDriven<CrmStaff>
 		}
 		
 		this.staffService.updateStaff(crmStaff);
-		
-		
-		
 		return "edit";
 	}
 	
