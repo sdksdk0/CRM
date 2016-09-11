@@ -96,7 +96,7 @@
 			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 				//3 显示
 				var postSelectObject = document.getElementById("postSelectId");
-				postSelectObject.innerHTML = "<option>----请--选--择----</option>";
+				postSelectObject.innerHTML = "<option>--请选择--</option>";
 				var textData = xmlhttp.responseText;
 				// 转换成json
 				var jsonData = eval("("+textData+")");

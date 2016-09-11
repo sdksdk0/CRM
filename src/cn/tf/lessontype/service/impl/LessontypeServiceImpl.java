@@ -23,7 +23,6 @@ public class LessontypeServiceImpl implements LessontypeService {
 		
 		//1 查询数据库，获得总记录数
 		int totalRecord = lessontypeDao.getTotalRecode();
-		
 		//2 分页数据
 		PageBean<CrmLessontype> pageBean = new PageBean<CrmLessontype>(pageNum, pageSize, totalRecord);
 		

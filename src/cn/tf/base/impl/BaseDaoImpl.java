@@ -84,7 +84,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 
 	/**
-	 * 通过编写回调实现分页，此实现类为固定内容
+	 * 通过编写回调实现分页
 	 */
 	class PageHibernateCallBack implements HibernateCallback<List<T>> {
 
@@ -104,8 +104,6 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 			this.firstResult = firstResult;
 			this.maxResults = maxResults;
 		}
-
-
 
 
 		@Override

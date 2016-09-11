@@ -3,6 +3,7 @@ package cn.tf.lessontype.action;
 
 import java.util.List;
 
+import cn.tf.base.BaseAction;
 import cn.tf.classes.domain.CrmClass;
 import cn.tf.lessontype.domain.CrmLessontype;
 import cn.tf.lessontype.service.LessontypeService;
@@ -12,7 +13,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class LessontypeAction  extends ActionSupport implements ModelDriven<CrmLessontype> {
+public class LessontypeAction  extends BaseAction<CrmLessontype> {
 
 		private CrmLessontype crmLessontype = new CrmLessontype();
 		@Override
@@ -40,7 +41,7 @@ public class LessontypeAction  extends ActionSupport implements ModelDriven<CrmL
 			
 			PageBean<CrmLessontype> pageBean = this.lessontypeService.findAllPage(pageNum, pageSize);
 
-			ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+			this.set("pageBean", pageBean);
 			
 			return "findAll";			
 	  }
@@ -54,7 +55,7 @@ public class LessontypeAction  extends ActionSupport implements ModelDriven<CrmL
 			
 		
 		CrmLessontype  findLessontype=this.lessontypeService.findById(this.getModel().getLessonTypeId());
-		ActionContext.getContext().getValueStack().push(findLessontype);
+		this.push(findLessontype);
 	
 	
 			return "addOrEditUI";

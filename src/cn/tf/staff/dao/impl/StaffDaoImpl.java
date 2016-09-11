@@ -71,9 +71,6 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao{
 			
 		}
 		
-		
-		
-		
 	}
 
 	
