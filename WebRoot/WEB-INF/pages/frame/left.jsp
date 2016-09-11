@@ -42,8 +42,8 @@
 		d.add('010401','0104','就业情况','../dept/listDept.html','','right');
 		
 		d.add('0105','01','人力资源部');
-		d.add('010501','0105','部门管理','../department/listDepartment.html','','right');
-		d.add('010502','0105','职务管理','../post/listPost.html','','right');
+		d.add('010501','0105','部门管理','${pageContext.request.contextPath}/departmentAction_findAll','','right');
+		d.add('010502','0105','职务管理','${pageContext.request.contextPath}/postAction_findAll','','right');
 			d.add('010035','0105','员工管理','${pageContext.request.contextPath}/staffAction_findAll','','right');
 		document.write(d);
 	</script>

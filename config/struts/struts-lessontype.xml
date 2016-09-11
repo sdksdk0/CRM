@@ -11,7 +11,8 @@
     <package name="lessontype" namespace="/" extends="common">
 		<action name="lessontypeAction_*"  class="cn.tf.lessontype.action.LessontypeAction"  method="{1}">
 			<result name="findAll"  >/WEB-INF/pages/lessontype/listLessontype.jsp</result>
-		
+			<result name="addOrEditUI">/WEB-INF/pages/lessontype/addOrEditCourseType.jsp</result>
+			<result name="addOrEdit"  type="redirectAction">lessontypeAction_findAll</result>
 		</action>
 			
     </package>

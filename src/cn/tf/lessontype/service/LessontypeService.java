@@ -12,7 +12,8 @@ public interface  LessontypeService {
 
 	List<CrmLessontype> findAll();
 
-	
-	
+	CrmLessontype findById(String lessonTypeId);
+
+	void addOrEditLessontype(CrmLessontype model);
 	
 }

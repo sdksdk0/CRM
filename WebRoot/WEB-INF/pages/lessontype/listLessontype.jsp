@@ -25,11 +25,11 @@
     <td width="39%" align="left">[课程类别]</td>
    
     <td width="57%"align="right">
-		<a href="javascript:void(0)" onclick="javascript:document.forms[0].submit();">
+		<%-- <a href="javascript:void(0)" onclick="javascript:document.forms[0].submit();">
 			<img src="${pageContext.request.contextPath}/images/button/gaojichaxun.gif" />
-		</a>      
+		</a>     --%>  
     	<%--编辑前：添加类别 --%>
-    	<a href="${pageContext.request.contextPath}/pages/coursetype/addOrEditCourse.jsp">
+    	<a href="${pageContext.request.contextPath}/lessontypeAction_addOrEditUI">
 	       	<img src="${pageContext.request.contextPath}/images/button/tianjia.gif" />
     	</a>
     </td>
@@ -40,26 +40,31 @@
 
 <%--条件查询 start --%>
 
-<form action="${pageContext.request.contextPath}/coursetype/courseTypeAction_findAll.action" method="post">
+<%-- <s:form namespace="/" action="lessontypeAction_findAll">
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	  <tr>
 	    <td width="10%">课程类别：</td>
-	    <td><input type="text" name="courseName" size="30" value="" /></td>
+	    <td><s:textfield size="30" name="lessonName"></s:textfield></td>
 	  </tr>
 	  <tr>
 	    <td >课程简介：</td>
-	    <td > <input type="text" name="remark" size="30" value="" /></td>
+	    <td ><s:textfield size="30" name="remark"></s:textfield></td>
 	  </tr>
 	  <tr>  
 	    <td >总学时：</td>
-	    <td ><input type="text" name="totalStart" size="12" value="" />  至  <input type="text" name="totalEnd" size="12" value="" /></td>
+	    <td ><s:textfield size="12" name="startTotal"/> 至 <s:textfield size="12" name="endTotal"/></td>
 	  </tr>
 	  <tr>
 	    <td>课程费用：</td>
-	    <td ><input type="text" name="lessonCostStart" size="12" value="" /> 至 <input type="text" name="lessonCostEnd" size="12" value="" /></td>
+	    <td ><s:textfield size="12" name="startLessonCost"/> 至 <s:textfield size="12" name="endLessonCost"/></td>
+	  </tr>
+	  <tr>
+	    <td></td>
+	    <td ><s:submit value="查询"></s:submit></td>
 	  </tr>
 	</table>
-</form>
+</s:form> --%>
+
 
 <%--条件查询 end --%>
 
@@ -85,8 +90,10 @@
 	    <td align="center"><s:property value="total"/></td>
 	    <td align="center"><s:property value="lessonCost"/></td>
 	  	<td width="11%" align="center">
-	  		
-	  		<a href="${pageContext.request.contextPath}/pages/coursetype/addOrEditCourse.jsp"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
+	  			<s:a namespace="/" action="lessontypeAction_addOrEditUI">
+	    		<s:param name="lessonTypeId" value="lessonTypeId"></s:param>
+	    		<img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img"/>
+	    	</s:a>
 	  	</td>
 	  </tr>
   </s:iterator>

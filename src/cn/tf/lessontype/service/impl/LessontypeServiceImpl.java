@@ -1,7 +1,10 @@
 package cn.tf.lessontype.service.impl;
 
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
 
 import cn.tf.lessontype.dao.LessontypeDao;
 import cn.tf.lessontype.domain.CrmLessontype;
@@ -34,5 +37,18 @@ public class LessontypeServiceImpl implements LessontypeService {
 	public List<CrmLessontype> findAll() {
 		return lessontypeDao.findAll();
 	}
+
+	@Override
+	public CrmLessontype findById(String lessonTypeId) {
+		
+		return lessontypeDao.findById(lessonTypeId);
+	}
+
+	@Override
+	public void addOrEditLessontype(CrmLessontype model) {
+		lessontypeDao.SaveOrUpdate(model);
+		
+	}
+
 
 }

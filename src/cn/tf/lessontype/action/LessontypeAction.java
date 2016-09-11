@@ -1,6 +1,9 @@
 package cn.tf.lessontype.action;
 
 
+import java.util.List;
+
+import cn.tf.classes.domain.CrmClass;
 import cn.tf.lessontype.domain.CrmLessontype;
 import cn.tf.lessontype.service.LessontypeService;
 import cn.tf.page.bean.PageBean;
@@ -21,13 +24,13 @@ public class LessontypeAction  extends ActionSupport implements ModelDriven<CrmL
 		public void setLessontypeService(LessontypeService lessontypeService) {
 			this.lessontypeService = lessontypeService;
 		}
-		
+
 		//3 分页数据
 		private int pageNum;
 		public void setPageNum(int pageNum) {
 			this.pageNum = pageNum;
 		}
-		private int pageSize = 2 ;
+		private int pageSize = 5 ;
 		
 		/**
 		 * 查询所有--分页
@@ -39,9 +42,28 @@ public class LessontypeAction  extends ActionSupport implements ModelDriven<CrmL
 
 			ActionContext.getContext().getValueStack().set("pageBean", pageBean);
 			
-			return "findAll";
-					
-					
+			return "findAll";			
+	  }
+		
+		
+		
+		
+		
+	//打开添加或修改页面
+		public String addOrEditUI(){
+			
+		
+		CrmLessontype  findLessontype=this.lessontypeService.findById(this.getModel().getLessonTypeId());
+		ActionContext.getContext().getValueStack().push(findLessontype);
+	
+	
+			return "addOrEditUI";
+		}
+
+
+		public String addOrEdit(){
+			this.lessontypeService.addOrEditLessontype(this.getModel());
+			return "addOrEdit";
 		}
 
 }

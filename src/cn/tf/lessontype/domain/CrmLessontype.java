@@ -20,14 +20,23 @@ public class CrmLessontype implements java.io.Serializable {
 	private String remark;
 	private Set<CrmClass> crmClasses = new HashSet<CrmClass>();
 	
-	
-	
+
+	private String startTotal;   //总学时（范围开始）
+	private String endTotal;   //总学时（范围结束）
+
+	private String startLessonCost;   //课程费用
+	private String endLessonCost;   //课程费用
+
 	
 	public CrmLessontype() {
 		super();
 	}
+	
+	
 	public CrmLessontype(String lessonTypeId, Double lessonCost, Integer total,
-			String lessonName, String remark, Set<CrmClass> crmClasses) {
+			String lessonName, String remark, Set<CrmClass> crmClasses,
+			String startTotal, String endTotal, String startLessonCost,
+			String endLessonCost) {
 		super();
 		this.lessonTypeId = lessonTypeId;
 		this.lessonCost = lessonCost;
@@ -35,7 +44,42 @@ public class CrmLessontype implements java.io.Serializable {
 		this.lessonName = lessonName;
 		this.remark = remark;
 		this.crmClasses = crmClasses;
+		this.startTotal = startTotal;
+		this.endTotal = endTotal;
+		this.startLessonCost = startLessonCost;
+		this.endLessonCost = endLessonCost;
 	}
+
+
+
+
+
+	public String getStartTotal() {
+		return startTotal;
+	}
+	public void setStartTotal(String startTotal) {
+		this.startTotal = startTotal;
+	}
+	public String getEndTotal() {
+		return endTotal;
+	}
+	public void setEndTotal(String endTotal) {
+		this.endTotal = endTotal;
+	}
+	public String getStartLessonCost() {
+		return startLessonCost;
+	}
+	public void setStartLessonCost(String startLessonCost) {
+		this.startLessonCost = startLessonCost;
+	}
+	public String getEndLessonCost() {
+		return endLessonCost;
+	}
+	public void setEndLessonCost(String endLessonCost) {
+		this.endLessonCost = endLessonCost;
+	}
+
+
 	public String getLessonTypeId() {
 		return lessonTypeId;
 	}

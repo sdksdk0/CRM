@@ -85,7 +85,6 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 
 	/**
 	 * 通过编写回调实现分页，此实现类为固定内容
-	 * @author <a>传智•左慈</a>
 	 */
 	class PageHibernateCallBack implements HibernateCallback<List<T>> {
 
